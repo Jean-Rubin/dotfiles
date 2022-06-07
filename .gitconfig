@@ -1,0 +1,5 @@
+[user]
+	name = Jean-Rubin
+	email = rubin.jean98@gmail.com
+[core]
+	editor = nvim
