@@ -1,0 +1,61 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+
+\usepackage{amsmath}               %% Math
+\usepackage{amsthm}                %% Theorem
+\usepackage{amssymb}               %% Symbol
+\usepackage[utf8]{inputenc}        %% Encoding
+\usepackage[T1]{fontenc}           %%
+%\usepackage[french]{babel}        % Writing in French
+\usepackage[dvipsnames]{xcolor}    % Color modification
+\usepackage{enumitem}              % \enumerate items enhancer (\alph*) (\Alph*)(\roman*)
+\usepackage{stmaryrd}              % \llbracket \llfloor
+\usepackage{tikz}                  % Figures plot
+\usepackage{geometry}              % Margin
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\usepackage{courier}
+\usepackage[backref=page, 
+            colorlinks,
+            citecolor=RoyalBlue,
+            pdfborder={0 0 0}]{hyperref} % Hypertext reference, must be called at the end.
+\usepackage{cleveref}              % Clever reference, must be called after hyperref.\Cref
+
+
+%%--------------------------------------------------
+%Settings
+%%--------------------------------------------------
+%\geometry{hmargin = 80pt, vmargin = 80pt}
+\setkomafont{disposition}{\scshape}
+
+
+%%--------------------------------------------------
+%Command
+%%--------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+
+\newcommand{\quotes}[1]{``#1''}
+
+%---------------------------------------------------
+
+
+%%--------------------------------------------------
+%Title
+%%--------------------------------------------------
+
+\titlehead{
+    {\Large Title} \hfill Extra info\\
+    Title head \hfill Extra info
+}
+\title{Title}
+\author{Jean Rubin}
+
+%---------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\end{document}

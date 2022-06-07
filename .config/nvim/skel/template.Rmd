@@ -1,0 +1,23 @@
+---
+title: "Title"
+author: "Jean Rubin"
+date: "`r format(Sys.Date(), '%d-%m-%y')`"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+
+```
+
+
+
+
+
+
+
+
+
+
