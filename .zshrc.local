@@ -235,3 +235,6 @@ unset __conda_setup
 
 # opam configuration
 test -r /home/jean/.opam/opam-init/init.zsh && . /home/jean/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# wasi-sdk
+export WASI_SDK_PATH=/home/jean/Packages/wasi-sdk-16.0
