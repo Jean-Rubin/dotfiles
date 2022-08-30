@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/jean/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["Nvim-R"] = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/Nvim-R",
@@ -83,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-latex-symbols"] = {
     loaded = true,
@@ -94,15 +104,15 @@ _G.packer_plugins = {
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/jean/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -113,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["lightspeed.nvim"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
-    url = "https://github.com/ggandor/lightspeed.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -164,11 +169,6 @@ _G.packer_plugins = {
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
-  ["nvim-lightbulb"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
-    url = "https://github.com/kosayoda/nvim-lightbulb"
-  },
   ["nvim-lsp"] = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/nvim-lsp",
@@ -199,11 +199,6 @@ _G.packer_plugins = {
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
-  },
   ["packer.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -220,25 +215,10 @@ _G.packer_plugins = {
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/jean/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/home/jean/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/sirver/ultisnips"
   },
   ["vim-easy-align"] = {
     loaded = true,
@@ -283,5 +263,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

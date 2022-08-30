@@ -147,6 +147,7 @@ function M.setup(colors)
     hi.DiffChange  = { guifg = M.colors.base03, guibg = M.colors.base00,  gui = nil, guisp = nil }
     hi.DiffDelete  = { guifg = M.colors.base08, guibg = M.colors.base00,  gui = nil, guisp = nil }
     hi.DiffText    = { guifg = M.colors.base0D, guibg = M.colors.base00,  gui = nil, guisp = nil }
+    hi.DiffAdd     = { guifg = M.colors.base0B, guibg = M.colors.base00,  gui = nil, guisp = nil }
     hi.DiffAdded   = { guifg = M.colors.base0B, guibg = M.colors.base00,  gui = nil, guisp = nil }
     hi.DiffFile    = { guifg = M.colors.base08, guibg = M.colors.base00,  gui = nil, guisp = nil }
     hi.DiffNewFile = { guifg = M.colors.base0B, guibg = M.colors.base00,  gui = nil, guisp = nil }
@@ -276,11 +277,20 @@ function M.setup(colors)
 
     -- Plugin specific
 
-    -- GitGutter highlighting
+    -- GitGutter and GitSigns highlighting
     hi.GitGutterAdd          = { guifg = M.colors.base0B, guibg = M.colors.base00, gui = nil, guisp = nil }
     hi.GitGutterChange       = { guifg = M.colors.base0D, guibg = M.colors.base00, gui = nil, guisp = nil }
     hi.GitGutterDelete       = { guifg = M.colors.base08, guibg = M.colors.base00, gui = nil, guisp = nil }
     hi.GitGutterChangeDelete = { guifg = M.colors.base0E, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsAdd           = { guifg = M.colors.base0B, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsAddNr         = { guifg = M.colors.base0B, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsAddLn         = { guifg = M.colors.base0B, guibg = M.colors.base00, gui = 'bold', guisp = nil }
+    hi.GitSignsChange        = { guifg = M.colors.base0D, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsChangeNr      = { guifg = M.colors.base0D, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsChangeLn      = { guifg = M.colors.base0D, guibg = M.colors.base00, gui = 'bold', guisp = nil }
+    hi.GitSignsDelete        = { guifg = M.colors.base08, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsDeleteNr      = { guifg = M.colors.base08, guibg = M.colors.base00, gui = nil, guisp = nil }
+    hi.GitSignsDeleteLn      = { guifg = M.colors.base08, guibg = M.colors.base00, gui = 'bold', guisp = nil }
 
     -- Git highlighting
     hi.gitcommitOverflow      = { guifg = M.colors.base08, guibg = nil, gui = nil,    guisp = nil }
@@ -319,14 +329,5 @@ setmetatable(M.colorschemes, {
         return t[key]
     end,
 })
-
--- #16161D is called eigengrau and is kinda-ish the color your see when you
--- close your eyes. It makes for a really good background.
-M.colorschemes['schemer-dark'] = {
-    base00 = '#16161D', base01 = '#3e4451', base02 = '#2c313c', base03 = '#565c64',
-    base04 = '#6c7891', base05 = '#abb2bf', base06 = '#9a9bb3', base07 = '#c5c8e6',
-    base08 = '#e06c75', base09 = '#d19a66', base0A = '#e5c07b', base0B = '#98c379',
-    base0C = '#56b6c2', base0D = '#0184bc', base0E = '#c678dd', base0F = '#a06949',
-}
 
 return M

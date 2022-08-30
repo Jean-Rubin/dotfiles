@@ -1,7 +1,0 @@
-let g:colors_name = 'chroma'
-lua require('colorscheme.template').setup({
-    \ base00 = '#03263f', base01 = '#1e3249', base02 = '#2a3d52', base03 = '#506074',
-    \ base04 = '#3c8280', base05 = '#b1c9e6', base06 = '#d6e4f8', base07 = '#8591a6',
-    \ base08 = '#e495a5', base09 = '#db9d85', base0A = '#bfaa67', base0B = '#4ebe9c',
-    \ base0C = '#38bdbb', base0D = '#7db0dd', base0E = '#c49cdd', base0F = '#a0905b',
-    \})

@@ -2,20 +2,10 @@
 local wk = require('which-key')
 
 require'nvim-tree'.setup {
-    disable_netrw       = true,
-    hijack_netrw        = true,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {},
-    update_to_buf_dir   = {
+    disable_netrw = true,
+    diagnostics = {
         enable = true,
-        auto_open = true,
-    },
-    auto_close          = false,
-    open_on_tab         = false,
-    hijack_cursor       = false,
-    update_cwd          = false,
-    diagnostics         = {
-        enable = false,
+        show_on_dirs = true,
         icons = {
             hint = "",
             info = "",
@@ -23,27 +13,25 @@ require'nvim-tree'.setup {
             error = "",
         }
     },
-    update_focused_file = {
-        enable      = false,
-        update_cwd  = false,
-        ignore_list = {}
-    },
-    system_open = {
-        cmd  = nil,
-        args = {}
+    git = {
+        enable = true,
+        ignore = true,
+        show_on_dirs = true
     },
     view = {
         width = 30,
         height = 30,
         side = 'left',
-        auto_resize = false,
+        -- auto_resize = false,
         mappings = {
-            custom_only = false,
-            list = {}
+            list = {
+                { key = "tg", action = "toggle_git"},
+                { key = "td", action = "toggle_dotfiles"}
+            }
         }
     },
     filters = {
-        dotfiles = false,
+        dotfiles = true,
         custom = {'.git', 'node_modules', '.cache'}
     }
 }

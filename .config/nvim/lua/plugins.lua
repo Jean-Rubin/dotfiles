@@ -28,33 +28,32 @@ return require('packer').startup(function(use)
     }
     use {'jalvesaq/vimcmdline'}
     use {'nvim-telescope/telescope.nvim',
-        requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}
+        tag = '0.1.0',
+        requires = {'nvim-lua/plenary.nvim'}
     }
     use {'numToStr/Comment.nvim'}
     use {'folke/which-key.nvim'}
     use {'windwp/nvim-autopairs'}
 
     --- Snippets
-    use {'sirver/ultisnips'}
-
-    --- Colorscheme
-    use {'mhartington/oceanic-next'}
+    use {'L3MON4D3/LuaSnip'}
 
     --- LSP
     use {'neovim/nvim-lsp'}
     use {'hrsh7th/nvim-cmp',
-        requires = {'hrsh7th/cmp-buffer',
-                    'hrsh7th/cmp-path',
-                    'hrsh7th/cmp-nvim-lsp',
-                    'onsails/lspkind-nvim',
-                    'quangnguyen30192/cmp-nvim-ultisnips',
-                    'kdheepak/cmp-latex-symbols'
-                    },
+        requires = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-nvim-lsp',
+            'onsails/lspkind-nvim',
+            'saadparwaiz1/cmp_luasnip',
+            'kdheepak/cmp-latex-symbols'
+        },
         sources = {
             { name = 'latex_symbols' }
         }
     }
-    use {'kosayoda/nvim-lightbulb'}
     use {'weilbith/nvim-code-action-menu'}
     use {'ray-x/lsp_signature.nvim'}
 
@@ -66,13 +65,15 @@ return require('packer').startup(function(use)
             'nvim-treesitter/playground',
             'p00f/nvim-ts-rainbow'
         },
-        run = ':TSUpdate'}
+        run = ':TSUpdate'
+    }
     use {'lukas-reineke/indent-blankline.nvim'}
 
     --- Debugging
     use {'mfussenegger/nvim-dap'}
     use {'rcarriga/nvim-dap-ui',
-        requires = {'mfussenegger/nvim-dap'}}
+        requires = {'mfussenegger/nvim-dap'}
+    }
 
     --- Latex
     use {'lervag/vimtex'}
@@ -86,7 +87,5 @@ return require('packer').startup(function(use)
     --- Miscellaneous
     use {'junegunn/vim-easy-align'}
     use {'norcalli/nvim-colorizer.lua'}
-    use {'ggandor/lightspeed.nvim'}
 
 end)
-

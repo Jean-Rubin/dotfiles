@@ -1,8 +1,4 @@
-local utils = require('utils')
-
-utils.opt('o', 'termguicolors', true) -- Enable 24 RGB colors in the terminal
-
-require('colorscheme.chroma')
+local colorscheme = require('colorscheme.chroma')
 
 -- vim.cmd([[highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
 -- highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
@@ -11,4 +7,4 @@ require('colorscheme.chroma')
 -- highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
 -- highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4]])
 
-
+return colorscheme
