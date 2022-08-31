@@ -3,6 +3,7 @@ local indent = 4
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
 vim.opt.mouse          = 'a'                   -- Enable mouse usage (all modes)
+vim.opt.showmode       = false                 -- Don't display current mode in last line
 vim.opt.ignorecase     = true                  -- Do case insensitive matching
 vim.opt.smartcase      = true                  -- Do smart case matching
 vim.opt.gdefault       = true                  -- Pattern use the g flag by default
@@ -46,7 +47,6 @@ vim.opt.laststatus     = 3                     -- Global status line
 vim.opt.winbar         = "%=%m%f"
 
 --- Skeleton files
--- vim.cmd 'autocmd BufNewFile * silent!'
 vim.api.nvim_create_autocmd("BufNewFile", {
 	pattern = "*",
 	callback = function()
@@ -60,7 +60,12 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 -- vim.cmd 'au WinEnter * setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow'
 
 --- Highlight after yank
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {timeout = 100}'
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank {timeout = 100}
+    end
+})
 
 --- Custom fix on ocaml
 vim.cmd 'autocmd BufRead,BufNewFile *.mli set ft=ocaml_interface'

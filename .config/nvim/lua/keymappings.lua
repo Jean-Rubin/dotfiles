@@ -40,7 +40,7 @@ utils.map('n', '<BS>', 'za')
 
 --- Edit vimrc/zshrc and load vimrc bindings
 utils.map('n', '<leader>ez', '<cmd>vsp ~/.zshrc.local<cr>')
-utils.map('n', '<leader>es', '<cmd>tabe ~/.config/nvim/lua<cr>')
+utils.map('n', '<leader>ec', '<cmd>tabe ~/.config/nvim/lua<cr>')
 
 --- Save Session
 utils.map('n', '<leader>ss', '<cmd>mksession<cr>')
