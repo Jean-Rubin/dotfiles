@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-surround'}
     use {'tpope/vim-repeat'}
     use {'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true} -- File icons
+        requires = {'kyazdani42/nvim-web-devicons'} -- File icons
     }
     use {'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true} -- File icons

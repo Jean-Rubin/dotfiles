@@ -53,7 +53,6 @@ end
 local rename_handler_custom = function(err, result)
 	if err then vim.notify(("Error running lsp query 'rename': "..err), vim.log.levels.ERROR) end
 
-    print(vim.inspect(result))
     if not result then
         return
     end
@@ -79,7 +78,7 @@ local rename_handler_custom = function(err, result)
     vim.notify(msg_stack.msg, "info", {
       title = ("Succesfully renamed with %d changes"):format(msg_stack.num_changes),
     })
-	vim.lsp.util.apply_workspace_edit(result)
+	vim.lsp.util.apply_workspace_edit(result, "utf-8")
     vim.fn.setqflist(entries, "r")
 end
 
@@ -110,12 +109,12 @@ function M.on_attach(client, bufnr)
     -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 
-    -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
     -- buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    -- buf_set_keymap('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
     -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -135,26 +134,21 @@ function M.on_attach(client, bufnr)
     buf_set_keymap('n', ',d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ';d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
-    -- Set some keybinds conditional on server capabilities
-    if client.server_capabilities.document_formatting then
-        buf_set_keymap("n", "<leader>=", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    end
-    if client.server_capabilities.document_range_formatting then
-        buf_set_keymap("v", "<leader>=", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    if client.server_capabilities.documentFormattingProvider then
+        buf_set_keymap('n', '<space>=', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
     end
 
-    -- Set autocommands conditional on server_capabilities
-    if client.server_capabilities.document_highlight then
-        vim.api.nvim_exec(
-            [[
-            augroup lsp_document_highlight
-            autocmd! * <buffer>
-            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-            augroup END
-            ]],
-            false
-        )
+    if client.server_capabilities.documentHighlightProvider then
+        vim.cmd([[
+          hi! link LspReferenceRead Visual
+          hi! link LspReferenceText Visual
+          hi! link LspReferenceWrite Visual
+          augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+        ]])
     end
 
     -- Add lsp_signature
@@ -171,11 +165,12 @@ function M.on_attach(client, bufnr)
         ['<leader>l'] = {
             name = 'Lsp',
             d = {'<cmd>lua require("telescope.builtin").diagnostics()<cr>', 'Document Wide Diagnostics'},
-            D = {'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'Line Diagnostics'},
+            qd = {'<cmd>lua vim.diagnostic.setqflist { open = true }<CR>', 'Global Quickfix Diagnostics'},
+            D = {'<cmd>lua vim.diagnostic.open_float(nil, { focusable = false, close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" }, border = "rounded", source = "always", prefix = " " })<CR>', 'Show Diagnostics'},
             c = {'<cmd>CodeActionMenu<cr>', 'Code Action Menu'},
             r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename Variable'}
         },
-        ['<leader>w'] = {
+        ['<leader>lw'] = {
             name = 'workspace',
             a = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add Workspace Folder'},
             r = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Remove Workspace Folder'},

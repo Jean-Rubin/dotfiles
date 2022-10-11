@@ -31,9 +31,14 @@ wk.register {
     ['<leader>f'] = {
         name = 'find',
         f = {'<cmd>Telescope find_files<cr>', 'Find File' },
-        g = {'<cmd>Telescope live_grep<cr>', 'Live Grep' },
+        lg = {'<cmd>Telescope live_grep<cr>', 'Live Grep' },
         b = {'<cmd>Telescope buffers<cr>', 'Find Buffer' },
         h = {'<cmd>Telescope help_tags<cr>', 'Find Help Docs'},
-        q = {'<cmd>Telescope quickfix<cr>', 'Find Quickfix'}
+        q = {'<cmd>Telescope quickfix<cr>', 'Find Quickfix'},
+        ['ds'] = {'<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', 'Find Document Symbols'},
+        ['ws'] = {'<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', 'Find Workspace Symbols'},
+        ['gc'] = {'<cmd>lua require("telescope.builtin").git_commits()<cr>', 'Find Git Commits'},
+        ['gb'] = {'<cmd>lua require("telescope.builtin").git_branches()<cr>', 'Find Git Commits'},
+        ['gs'] = {'<cmd>lua require("telescope.builtin").git_status()<cr>', 'Find Git Status'}
     }
 }

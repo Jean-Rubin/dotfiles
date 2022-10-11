@@ -136,4 +136,4 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = {'javascript', 'lua', 'python', 'julia'}
 }
 
--- vim.api.nvim_set_keymap('n', '<F1>', '<cmd>TSCaptureUnderCursor<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F1>', '<cmd>TSCaptureUnderCursor<CR>', {noremap = true})
