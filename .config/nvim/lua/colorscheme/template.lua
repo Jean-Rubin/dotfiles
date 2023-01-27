@@ -184,6 +184,8 @@ function M.setup(colors)
 
     hi.TSAnnotation         = { guifg = M.colors.base0F, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSAttribute          = { guifg = M.colors.base0A, guibg = nil, gui = 'none',          guisp = nil }
+    hi["@tag.attribute"]    = { guifg = M.colors.base0A, guibg = nil, gui = 'none',          guisp = nil }
+    hi["@attr"]    = { guifg = M.colors.base0A, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSBoolean            = 'Boolean'
     hi.TSCharacter          = 'Character'
     hi.TSComment            = 'Comment'
@@ -195,6 +197,7 @@ function M.setup(colors)
     hi.TSError              = 'Error'
     hi.TSException          = 'Exception'
     hi.TSField              = { guifg = M.colors.base10, guibg = nil, gui = 'none',          guisp = nil }
+    hi["@field"]            = { guifg = M.colors.base10, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSFloat              = 'Float'
     hi.TSFunction           = 'Function'
     hi.TSFuncBuiltin        = 'Function'
@@ -209,7 +212,8 @@ function M.setup(colors)
     hi.TSNone               = { guifg = M.colors.base05, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSNumber             = 'Number'
     hi.TSOperator           = 'Operator'
-    hi.TSParameter          = { guifg = M.colors.base05, guibg = nil, gui = 'none',          guisp = nil }
+    hi.TSParameter          = { guifg = M.colors.base10, guibg = nil, gui = 'none',          guisp = nil }
+    hi["@parameter"]        = { guifg = M.colors.base10, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSParameterReference = 'TSParameter'
     hi.TSProperty           = 'TSField'
     hi.TSPunctDelimiter     = 'Delimiter'
@@ -221,6 +225,7 @@ function M.setup(colors)
     hi.TSStringEscape       = 'SpecialChar'
     hi.TSSymbol             = { guifg = M.colors.base0B, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSTag                = 'Tag'
+    hi["@tag"]              = 'Tag'
     hi.TSTagDelimiter       = 'Delimiter'
     hi.TSText               = { guifg = M.colors.base05, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSStrong             = { guifg = nil,             guibg = nil, gui = 'bold',          guisp = nil }
@@ -233,6 +238,7 @@ function M.setup(colors)
     hi.TSType               = 'Type'
     hi.TSTypeBuiltin        = 'Type'
     hi.TSVariable           = { guifg = M.colors.base05, guibg = nil, gui = 'none',          guisp = nil }
+    hi["@variable"]           = { guifg = M.colors.base05, guibg = nil, gui = 'none',          guisp = nil }
     hi.TSVariableBuiltin    = 'TSVariable'
 
     hi.TSDefinition      = { guifg = nil, guibg = nil, gui = 'underline', guisp = M.colors.base04 }

@@ -1,5 +1,10 @@
-require('nvim-autopairs').setup {
+require("nvim-autopairs").setup {
     fast_wrap = {}
 }
 
-vim.cmd [[au Filetype ocaml lua require('nvim-autopairs').remove_rule("'")]]
+vim.api.nvim_create_autocmd("Filetype", {
+    pattern = {"ocaml"},
+    callback = function()
+        require("nvim-autopairs").remove_rule("'")
+    end
+})

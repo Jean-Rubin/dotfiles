@@ -1,7 +1,7 @@
 local indent = 4
 
-vim.cmd('syntax enable')
-vim.cmd('filetype plugin indent on')
+vim.cmd("syntax enable")
+vim.cmd("filetype plugin indent on")
 vim.opt.mouse          = 'a'                   -- Enable mouse usage (all modes)
 vim.opt.showmode       = false                 -- Don't display current mode in last line
 vim.opt.ignorecase     = true                  -- Do case insensitive matching
@@ -12,7 +12,7 @@ vim.opt.ttimeoutlen    = 0                     -- No waiting for esc to go back 
 vim.opt.updatetime     = 1000                  -- CursorHold timeout value
 vim.opt.wrap           = true                  -- Allow long lines to wrap
 vim.opt.scrolloff      = 5                     -- Minimal screen size above or below the cursor
-vim.opt.clipboard      = 'unnamed,unnamedplus' -- Clipboard on normal yank
+vim.opt.clipboard      = "unnamed,unnamedplus" -- Clipboard on normal yank
 vim.opt.swapfile       = false                 -- No swap files
 
 --- Splits
@@ -34,13 +34,13 @@ vim.opt.numberwidth    = 3                     -- Width of the number column
 --- Folding
 vim.opt.foldlevelstart = 5                     -- Folds are closed after some levels
 vim.opt.foldlevel      = 5                     -- Folds are closed after some levels
-vim.opt.foldmethod     = 'indent'              -- Folds are based on indent levels
+vim.opt.foldmethod     = "indent"              -- Folds are based on indent levels
 
 --- Wildmenu
-vim.opt.wildignore     = '*.aux,*.log,*.out,*.pdf,*.bmp, *.gif,*.ico,*.jpg,*.png,*.swp,*.tmp' --Files to ignore
+vim.opt.wildignore     = "*.aux,*.log,*.out,*.pdf,*.bmp, *.gif,*.ico,*.jpg,*.png,*.swp,*.tmp" --Files to ignore
 
 --- Programs
-vim.opt.grepprg        = 'rg --hidden --vimgrep --smart-case --'
+vim.opt.grepprg        = "rg --hidden --vimgrep --smart-case --"
 
 -- Status Line
 vim.opt.laststatus     = 3                     -- Global status line
@@ -49,15 +49,8 @@ vim.opt.winbar         = "%=%m%f"
 --- Skeleton files
 vim.api.nvim_create_autocmd("BufNewFile", {
 	pattern = "*",
-	callback = function()
-		vim.cmd('silent! 0r ~/.config/nvim/skel/template.%:e')
-	end
+	command = "silent! 0r ~/.config/nvim/skel/template.%:e"
 })
-
---- Inactive windows dimming
--- vim.cmd 'hi ActiveWindow guibg=#17252c'
--- vim.cmd 'hi InactiveWindow guibg=#1b2b34'
--- vim.cmd 'au WinEnter * setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow'
 
 --- Highlight after yank
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -108,31 +108,12 @@ function M.on_attach(client, bufnr)
 
     -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-
-    -- buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-
-    -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-
-    -- buf_set_keymap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-
-    -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>ca', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>ca', '<cmd>CodeActionMenu<CR>', opts)
-
-    -- buf_set_keymap('n', '<leader>dd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>dd', '<cmd>lua require"telescope.builtin".lsp_document_diagnostics()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>dD', '<cmd>lua require"telescope.builtin".lsp_workspace_diagnostics()<CR>', opts)
-
-    buf_set_keymap('n', ',d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ';d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', ',d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ';d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
     if client.server_capabilities.documentFormattingProvider then
         buf_set_keymap('n', '<space>=', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
@@ -163,24 +144,24 @@ function M.on_attach(client, bufnr)
     -- Register keybindings
     wk.register {
         ['<leader>l'] = {
-            name = 'Lsp',
+            name = 'lsp',
             d = {'<cmd>lua require("telescope.builtin").diagnostics()<cr>', 'Document Wide Diagnostics'},
             qd = {'<cmd>lua vim.diagnostic.setqflist { open = true }<CR>', 'Global Quickfix Diagnostics'},
             D = {'<cmd>lua vim.diagnostic.open_float(nil, { focusable = false, close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" }, border = "rounded", source = "always", prefix = " " })<CR>', 'Show Diagnostics'},
             c = {'<cmd>CodeActionMenu<cr>', 'Code Action Menu'},
-            r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename Variable'}
+            r = {'<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename Variable'},
+            w = {
+                name = 'workspace',
+                a = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add Workspace Folder'},
+                r = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Remove Workspace Folder'},
+                l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspace Folder'}
+            }
         },
-        ['<leader>lw'] = {
-            name = 'workspace',
-            a = {'<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add Workspace Folder'},
-            r = {'<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Remove Workspace Folder'},
-            l = {'<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspace Folder'}
-        }
     }
 end
 
 
-M.capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 
 return M

@@ -1,4 +1,4 @@
-local colors = require('colorscheme')
+local colors = require("colorscheme")
 
 -- black 00
 -- darkgray 01
@@ -12,32 +12,32 @@ local colors = require('colorscheme')
 
 local custom_theme = {
   normal = {
-    a = {bg = colors.base06, fg = colors.base00, gui = 'bold'},
+    a = {bg = colors.base06, fg = colors.base00, gui = "bold"},
     b = {bg = colors.base03, fg = colors.base06},
     c = {bg = colors.base01, fg = colors.base07}
   },
   insert = {
-    a = {bg = colors.base0D, fg = colors.base00, gui = 'bold'},
+    a = {bg = colors.base0D, fg = colors.base00, gui = "bold"},
     b = {bg = colors.base03, fg = colors.base06},
     c = {bg = colors.base01, fg = colors.base06}
   },
   visual = {
-    a = {bg = colors.base0A, fg = colors.base00, gui = 'bold'},
+    a = {bg = colors.base0A, fg = colors.base00, gui = "bold"},
     b = {bg = colors.base03, fg = colors.base06},
     c = {bg = colors.base01, fg = colors.base06}
   },
   replace = {
-    a = {bg = colors.base08, fg = colors.base00, gui = 'bold'},
+    a = {bg = colors.base08, fg = colors.base00, gui = "bold"},
     b = {bg = colors.base03, fg = colors.base06},
     c = {bg = colors.base01, fg = colors.base06}
   },
   command = {
-    a = {bg = colors.base0B, fg = colors.base00, gui = 'bold'},
+    a = {bg = colors.base0B, fg = colors.base00, gui = "bold"},
     b = {bg = colors.base03, fg = colors.base06},
     c = {bg = colors.base01, fg = colors.base06}
   },
   inactive = {
-    a = {bg = colors.base00, fg = colors.base03, gui = 'bold'},
+    a = {bg = colors.base00, fg = colors.base03, gui = "bold"},
     b = {bg = colors.base00, fg = colors.base03},
     c = {bg = colors.base00, fg = colors.base03}
   }
@@ -53,12 +53,12 @@ local config = {
         always_divide_middle = true,
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
+        lualine_a = {"mode"},
+        lualine_b = {"branch"},
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_y = {"progress"},
+        lualine_z = {"location"}
     },
     tabline = {},
     winbar = {
@@ -68,10 +68,10 @@ local config = {
         lualine_c = {
         },
         lualine_x = {
-            {'diff'},
-            {'diagnostics', sources={'nvim_lsp'}}
+            {"diff"},
+            {"diagnostics", sources={"nvim_lsp"}}
         },
-        lualine_y = {'filename'},
+        lualine_y = {"filename"},
         lualine_z = {}
     },
     inactive_winbar = {
@@ -81,10 +81,10 @@ local config = {
         lualine_c = {
         },
         lualine_x = {
-            {'diff'},
-            {'diagnostics', sources={'nvim_lsp'}}
+            {"diff"},
+            {"diagnostics", sources={"nvim_lsp"}}
         },
-        lualine_y = {'filename'},
+        lualine_y = {"filename"},
         lualine_z = {}
     },
     extensions = {}
@@ -123,4 +123,4 @@ ins_left {
     color = { fg = '#2f9fdf', gui = 'bold' },
 }
 
-require'lualine'.setup(config)
+require('lualine').setup(config)

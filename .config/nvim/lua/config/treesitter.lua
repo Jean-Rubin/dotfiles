@@ -1,82 +1,87 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup {
     highlight = {
         enable = true,
-        disable = {'latex'}
+        disable = {"latex", "markdown"}
+        -- disable = function(lang, bufnr)
+        --     return (lang == 'latex'
+        --         or lang == 'markdown'
+        --         or vim.api.nvim_buf_get_line_count(bufnr) > 5000)
+        -- end
     },
     indent = {
         enable = true,
-        disable = {'python', 'cpp'}
+        disable = {"python", "cpp"}
     },
     incremental_selection = {
         enable = true,
         keymaps = {
-            init_selection = 'gnn',
+            init_selection = "gnn",
             node_incremental = ';',
-            scope_incremental = 'grc',
+            scope_incremental = "grc",
             node_decremental = ',',
         }
     },
     textobjects = {
         enable = true,
-        disable = {'lua'},
+        disable = {"lua"},
         select = {
             enable = true,
-            disable = {'lua'},
+            disable = {"lua"},
             keymaps = {
-                ['af'] = '@function.outer',
-                ['if'] = '@function.inner',
-                ['ac'] = '@class.outer',
-                ['ic'] = '@class.inner',
-                ['aC'] = '@conditional.outer',
-                ['iC'] = '@conditional.inner',
-                ['ab'] = '@block.outer',
-                ['ib'] = '@block.inner',
-                ['al'] = '@loop.outer',
-                ['il'] = '@loop.inner',
-                ['is'] = '@statement.inner',
-                ['as'] = '@statement.outer',
-                ['ad'] = '@comment.outer',
-                ['am'] = '@call.outer',
-                ['im'] = '@call.inner'
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["aC"] = "@conditional.outer",
+                ["iC"] = "@conditional.inner",
+                ["ab"] = "@block.outer",
+                ["ib"] = "@block.inner",
+                ["al"] = '@loop.outer',
+                ["il"] = "@loop.inner",
+                ["is"] = "@statement.inner",
+                ["as"] = "@statement.outer",
+                ["ad"] = "@comment.outer",
+                ["am"] = "@call.outer",
+                ["im"] = "@call.inner"
             }
         },
         swap = {
             enable = true,
-            disable = {'lua'},
+            disable = {"lua"},
             swap_next = {
-                ['gl'] = '@parameter.inner',
+                ["gl"] = "@parameter.inner",
             },
             swap_previous = {
-                ['gh'] = '@parameter.inner',
+                ["gh"] = "@parameter.inner",
             },
         },
         move = {
             enable = true,
-            disable = {'lua'},
+            disable = {"lua"},
             goto_next_start = {
-                [';f'] = '@function.outer',
-                [';c'] = '@class.outer',
+                [";f"] = "@function.outer",
+                [";c"] = "@class.outer",
             },
             goto_next_end = {
-                [';F'] = '@function.outer',
-                [';C'] = '@class.outer',
+                [";F"] = "@function.outer",
+                [";C"] = "@class.outer",
             },
             goto_previous_start = {
-                [',f'] = '@function.outer',
-                [',c'] = '@class.outer',
+                [",f"] = "@function.outer",
+                [",c"] = "@class.outer",
             },
             goto_previous_end = {
-                [',F'] = '@function.outer',
-                [',C'] = '@class.outer',
+                [",F"] = "@function.outer",
+                [",C"] = "@class.outer",
             }
         },
         lsp_interop = {
             enable = true,
-            disable = {'lua'},
-            border = 'rounded',
+            disable = {"lua"},
+            border = "rounded",
             peek_definition_code = {
-                ['<leader><leader>f'] = '@function.outer',
-                ['<leader><leader>c'] = '@class.outer'
+                ["<leader><leader>f"] = "@function.outer",
+                ["<leader><leader>c"] = "@class.outer"
             }
         }
     },
@@ -90,14 +95,14 @@ require'nvim-treesitter.configs'.setup {
     --     smart_rename = {
     --         enable = true,
     --         keymaps = {
-    --             smart_rename = 'grr'
+    --             smart_rename = "grr"
     --         }
     --     },
     --     navigation = {
     --         enable = true,
     --         keymaps = {
-    --             goto_definition = 'gnd',
-    --             list_definitions = 'gnD'
+    --             goto_definition = "gnd",
+    --             list_definitions = "gnD"
     --         }
     --     }
     -- },
@@ -124,16 +129,16 @@ require'nvim-treesitter.configs'.setup {
         extended_mode = true,
         max_file_lines = nil,
         colors = {
-            '#c0c063',
-            '#71cf8d',
-            '#13d4d0',
-            '#82c2f7',
-            '#daa9f7',
-            '#fe9ec9',
-            '#f1ac88'
+            "#c0c063",
+            "#71cf8d",
+            "#13d4d0",
+            "#82c2f7",
+            "#daa9f7",
+            "#fe9ec9",
+            "#f1ac88"
             }
     },
-    ensure_installed = {'javascript', 'lua', 'python', 'julia'}
+    ensure_installed = {"javascript", "lua", "python", "julia"}
 }
 
-vim.api.nvim_set_keymap('n', '<F1>', '<cmd>TSCaptureUnderCursor<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F1>', "<cmd>TSCaptureUnderCursor<CR>", { noremap = true })

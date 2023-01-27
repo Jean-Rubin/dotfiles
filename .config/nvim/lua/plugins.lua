@@ -33,7 +33,13 @@ return require('packer').startup(function(use)
     }
     use {'numToStr/Comment.nvim'}
     use {'folke/which-key.nvim'}
+    use {'phaazon/hop.nvim',
+        branch = 'v2'
+    }
     use {'windwp/nvim-autopairs'}
+    use {'Wansmer/treesj',
+        requires = {'nvim-treesitter'}
+    }
 
     --- Snippets
     use {'L3MON4D3/LuaSnip'}

@@ -1,7 +1,7 @@
 -- local utils = require('utils')
 local wk = require('which-key')
 
-require'nvim-tree'.setup {
+require("nvim-tree").setup {
     disable_netrw = true,
     diagnostics = {
         enable = true,
@@ -20,7 +20,7 @@ require'nvim-tree'.setup {
     },
     view = {
         width = 30,
-        side = 'left',
+        side = "left",
         -- auto_resize = false,
         mappings = {
             list = {
@@ -31,18 +31,14 @@ require'nvim-tree'.setup {
     },
     filters = {
         dotfiles = true,
-        custom = {'.git', 'node_modules', '.cache'}
+        custom = {".git", "node_modules", ".cache"}
     }
 }
 
--- utils.map('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>')
--- utils.map('n', '<leader>tf', '<cmd>NvimTreeFindFile<CR>')
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Tree" })
+vim.keymap.set("n", "<leader>tf", "<cmd>NvimTreeFindFile<CR>", { desc = "Find File in Tree" })
 
 wk.register {
-    ["<leader>t"] = {
-        name = 'tree',
-        t = {'<cmd>NvimTreeToggle<cr>', 'Toggle Tree'},
-        f = {'<cmd>NvimTreeFindFile<cr>', 'Find File in Tree'}
-    }
+    ["<leader>t"] = { name = 'tree' }
 }
 
