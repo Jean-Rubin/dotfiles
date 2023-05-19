@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
             'nvim-treesitter/nvim-treesitter-textobjects',
             --'nvim-treesitter/nvim-treesitter-refactor', -- Redundant with LSP functions
             'nvim-treesitter/playground',
-            'p00f/nvim-ts-rainbow'
+            'HiPhish/nvim-ts-rainbow2'
         },
         run = ':TSUpdate'
     }

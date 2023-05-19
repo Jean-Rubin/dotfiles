@@ -14,7 +14,9 @@ cmp.setup {
     }),
     formatting = {
         format = lspkind.cmp_format {
-            with_text = true,
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
             menu = {
                 nvim_lsp = "[LSP]",
                 buffer = "[Buffer]",

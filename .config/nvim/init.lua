@@ -14,7 +14,8 @@ require('plugins')
 require('config')
 
 --- Colorscheme
-require('colorscheme')
+local colorscheme = require('colorscheme.chroma')
+require('colorscheme').setup(colorscheme)
 
 --- LSP
 require('lsp')

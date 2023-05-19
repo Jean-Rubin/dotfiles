@@ -14,6 +14,7 @@ vim.opt.wrap           = true                  -- Allow long lines to wrap
 vim.opt.scrolloff      = 5                     -- Minimal screen size above or below the cursor
 vim.opt.clipboard      = "unnamed,unnamedplus" -- Clipboard on normal yank
 vim.opt.swapfile       = false                 -- No swap files
+vim.opt.cursorline     = true                  -- Set cursor line
 
 --- Splits
 vim.opt.splitbelow     = true                  -- Open new split panes below

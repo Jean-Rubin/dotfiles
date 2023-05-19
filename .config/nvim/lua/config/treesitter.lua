@@ -1,12 +1,12 @@
 require("nvim-treesitter.configs").setup {
     highlight = {
         enable = true,
-        disable = {"latex", "markdown"}
-        -- disable = function(lang, bufnr)
-        --     return (lang == 'latex'
-        --         or lang == 'markdown'
-        --         or vim.api.nvim_buf_get_line_count(bufnr) > 5000)
-        -- end
+        disable = function(lang, bufnr)
+            return (
+                lang == "latex"
+                or lang == "markdown"
+                or vim.api.nvim_buf_line_count(bufnr) > 5000)
+        end
     },
     indent = {
         enable = true,
@@ -126,17 +126,9 @@ require("nvim-treesitter.configs").setup {
     },
     rainbow = {
         enable = true,
+        disable = { 'cpp' },
         extended_mode = true,
-        max_file_lines = nil,
-        colors = {
-            "#c0c063",
-            "#71cf8d",
-            "#13d4d0",
-            "#82c2f7",
-            "#daa9f7",
-            "#fe9ec9",
-            "#f1ac88"
-            }
+        max_file_lines = nil
     },
     ensure_installed = {"javascript", "lua", "python", "julia"}
 }

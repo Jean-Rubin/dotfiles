@@ -1,11 +1,6 @@
-" Ensure that plugin/vimcmdline.vim was sourced
-if !exists("g:cmdline_job")
-    runtime plugin/vimcmdline.vim
-endif
-
 function! OcamlSourceLines(lines)
     call writefile(a:lines, g:cmdline_tmp_dir . "/lines.ml")
-    call VimCmdLineSendCmd('#use "' . g:cmdline_tmp_dir . '/lines.ml";;')
+    call cmdline#SendCmd('#use "' . g:cmdline_tmp_dir . '/lines.ml";;')
 endfunction
 
 " Send current line to the interpreter and go down to the next non empty line
@@ -26,8 +21,8 @@ let b:cmdline_source_fun = function("OcamlSourceLines")
 let b:cmdline_send_empty = 0
 let b:cmdline_filetype = "ocaml"
 
-exe 'nmap <buffer><silent> ' . g:cmdline_map_start . ' :call VimCmdLineStartApp()<CR>'
+if !exists("g:cmdline_map_start")
+    let g:cmdline_map_start = "<Leader>rs"
+endif
 
-" Fixing bug
-let g:cmdline_job.ocaml = 0
-" call VimCmdLineSetApp("ocaml")
+exe 'nmap <buffer><silent> ' . g:cmdline_map_start . ' :call cmdline#StartApp()<CR>'

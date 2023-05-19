@@ -13,6 +13,30 @@ table.insert(snippets, s("#!", {
     t("#!/usr/bin/env Rscript")
 }))
 
+table.insert(snippets, s("#'", fmt(
+    [[
+    #' {}
+    #'
+    #' {}
+    #'
+    #' @param {} {}
+    #' @param {} {}
+    #'
+    #' @return {}
+    #' @export
+    #' @examples
+    ]],
+    {
+        i(1, "Title"),
+        i(2, "Description."),
+        i(3, "parameter"),
+        i(4, "Parameter description."),
+        i(5, "parameter"),
+        i(6, "Parameter description."),
+        i(7, "Return description."),
+    }
+)))
+
 table.insert(snippets, s("setwd", fmt(
     [[
     setwd("{}")

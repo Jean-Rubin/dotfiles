@@ -6,6 +6,4 @@ local colorscheme = {
     base10 = '#84b2c3', base11 = '#c69091'
 }
 
-require('colorscheme.template').setup(colorscheme)
-
 return colorscheme
