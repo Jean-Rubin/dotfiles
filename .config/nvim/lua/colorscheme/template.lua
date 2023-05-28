@@ -100,7 +100,7 @@ function M.setup(colors)
     hi.WildMenu     = { fg = p.base08, bg = p.base0A, attr = nil,    sp = nil }
     hi.Title        = { fg = p.base0D, bg = nil,      attr = 'none', sp = nil }
     hi.Conceal      = { fg = p.base0D, bg = p.base00, attr = nil,    sp = nil }
-    hi.Cursor       = { fg = p.base00, bg = p.base05, attr = nil,    sp = nil }
+    hi.Cursor       = { fg = p.base00, bg = p.base06, attr = nil,    sp = nil }
     hi.NonText      = { fg = p.base03, bg = p.base00, attr = nil,    sp = nil }
     hi.LineNr       = { fg = p.base04, bg = p.base00, attr = nil,    sp = nil }
     hi.SignColumn   = { fg = p.base04, bg = p.base00, attr = nil,    sp = nil }
@@ -272,20 +272,29 @@ function M.setup(colors)
     hi.TreesitterContext = { fg = nil, bg = p.base01, attr = 'italic', sp = nil }
 
     vim.g.terminal_color_0  = p.base00
-    vim.g.terminal_color_1  = p.base08
-    vim.g.terminal_color_3  = p.base0A
-    vim.g.terminal_color_4  = p.base0D
-    vim.g.terminal_color_5  = p.base0E
-    vim.g.terminal_color_6  = p.base0C
-    vim.g.terminal_color_7  = p.base05
     vim.g.terminal_color_8  = p.base03
+
+    vim.g.terminal_color_1  = p.base08
     vim.g.terminal_color_9  = p.base08
+
+    vim.g.terminal_color_2  = p.base0B
     vim.g.terminal_color_10 = p.base0B
+
+    vim.g.terminal_color_3  = p.base0A
     vim.g.terminal_color_11 = p.base0A
+
+    vim.g.terminal_color_4  = p.base0D
     vim.g.terminal_color_12 = p.base0D
+
+    vim.g.terminal_color_5  = p.base0E
     vim.g.terminal_color_13 = p.base0E
+
+    vim.g.terminal_color_6  = p.base0C
     vim.g.terminal_color_14 = p.base0C
+
+    vim.g.terminal_color_7  = p.base05
     vim.g.terminal_color_15 = p.base07
+
 
     -- Plugin specific
 

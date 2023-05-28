@@ -15,6 +15,7 @@ vim.opt.scrolloff      = 5                     -- Minimal screen size above or b
 vim.opt.clipboard      = "unnamed,unnamedplus" -- Clipboard on normal yank
 vim.opt.swapfile       = false                 -- No swap files
 vim.opt.cursorline     = true                  -- Set cursor line
+vim.opt.guicursor      = "n-v-c-sm:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr-o:hor20-Cursor/lCursor" -- Use Cursor highlight instead of the default terminal one
 
 --- Splits
 vim.opt.splitbelow     = true                  -- Open new split panes below
